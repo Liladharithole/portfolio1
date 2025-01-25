@@ -35,12 +35,12 @@ To run this project locally, follow these steps:
    ```
 4. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 
 ## Usage
 
-Open your browser and go to `http://localhost:3000` to see the website in action.
+Open your browser and go to`http://localhost:5173/` to see the website in action.
 
 ## Contributing
 
