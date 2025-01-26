@@ -8,7 +8,7 @@ import ProjectCard from "../../common/ProjectCard";
 
 const Projects = () => {
   return (
-    <>
+    <>  
       <div>
         <section id="projects" className={styles.container}>
           <h1 className={styles.sectionTitle}>Projects</h1>

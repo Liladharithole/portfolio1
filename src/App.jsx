@@ -12,7 +12,7 @@ const App = () => {
       <Skills></Skills>
       <Contact></Contact>
       <Footer></Footer>
-    </div>
-  );
+    </div> 
+  ); 
 };
 export default App;

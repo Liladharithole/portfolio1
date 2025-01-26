@@ -5,6 +5,6 @@ const SkillList = ({ src, skill }) => {
       <p>{skill}</p>
     </span>
   );
-};
+};   
 
 export default SkillList;

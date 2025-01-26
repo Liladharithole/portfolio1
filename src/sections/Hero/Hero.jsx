@@ -11,7 +11,7 @@ import githubLight from "../../assets /github-light.svg";
 import githubDark from "../../assets /github-dark.svg";
 import CV from "../../assets /cv.pdf";
 import { useTheme } from "../../common/ThemeContext";
-
+   
 const Hero = () => {
   const { theme, toggleTheme } = useTheme();
 
