@@ -70,22 +70,43 @@ p {
   margin-bottom: 30px;
 }
 
-:hover{
+:hover {
   cursor: pointer;
 }
 
-
-@media(width >= 800px) {
-  h1 {
-    font-size: 48px;
+@media (width >= 800px) {
+  #root {
+    gap: 100px;
   }
-  h2 {
+  h1 {
+    font-size: 40px;
+  }
+  h2,
+  h3 {
     font-size: 24px;
   }
-  h3 {
+  p {
     font-size: 20px;
   }
-  p {
-    font-size: 18px;
+
+  .sectionTiltle {
+    margin-bottom: 60px;
+  }
+
+  @media (width >= 1400px) {
+    #root {
+      gap: 200px;
+    }
+    h1 {
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 20px;
+    }
+
+    .sectionTiltle {
+      margin-bottom: 75px;
+    }
   }
 }

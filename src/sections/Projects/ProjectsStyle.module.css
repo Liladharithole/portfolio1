@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 
-  img{
+  img {
     max-width: 250px;
     align-self: center;
     background-color: var(--project-card-bg);
@@ -19,14 +19,23 @@
   a:hover {
     transform: scale(1.05);
   }
-  .projectContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-  }
 }
 
 .sectionTitle {
   margin-bottom: 40px;
+}
+
+.projectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (width >= 800px) {
+  .projectContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
 }

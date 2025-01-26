@@ -20,20 +20,27 @@
     width: 20px;
   }
 
-  .skillsList {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    max-width: 32ch;
-  }
   hr {
     width: 100px;
     height: 1px;
     border: none;
     background-color: var(--text-color);
-    margin: 20px auto;
   }
 }
 
+.skillsList {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  max-width: 32ch;
+}
 
+@media (width >= 800px) {
+  .skillsList {
+    max-width: fit-content;
+    gap: 30px;
+  }
+
+  
+}

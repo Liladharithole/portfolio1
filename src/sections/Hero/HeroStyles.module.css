@@ -9,12 +9,8 @@
   padding: 30px;
   margin-bottom: 90px;
 
-
   .hero {
     max-width: 200px;
-  }
-
-  img {
   }
 
   span {
@@ -86,5 +82,21 @@
 
   a {
     margin: auto;
+  }
+}
+
+@media (width >= 800px) {
+  .container {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+
+    .hero {
+      max-width: 350px;
+      width: 300px;
+    }
+    .description {
+      max-width: 72ch;
+    }
   }
 }
