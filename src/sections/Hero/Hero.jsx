@@ -1,17 +1,17 @@
 import React from "react";
 import style from "./HeroStyles.module.css";
 import heroImg from "/src/assets /Lila.png";
-import sun from "../../assets /sun.svg";
-import moon from "../../assets /moon.svg";
-import twitterLight from "../../assets /twitter-light.svg";
-import twitterDark from "../../assets /twitter-Dark.svg";
-import linkedinLight from "../../assets /linkedin-light.svg";
-import linkedinDark from "../../assets /linkedin-dark.svg";
-import githubLight from "../../assets /github-light.svg";
-import githubDark from "../../assets /github-dark.svg";
-import CV from "../../assets /cv.pdf";
+import sun from "/src/assets /sun.svg";
+import moon from "/src/assets /moon.svg";
+import twitterLight from "/src/assets /twitter-light.svg";
+import twitterDark from "/src/assets /twitter-Dark.svg";
+import linkedinLight from "/src/assets /linkedin-light.svg";
+import linkedinDark from "/src/assets /linkedin-dark.svg";
+import githubLight from "/src/assets /github-light.svg";
+import githubDark from "/src/assets /github-dark.svg";
+import CV from "/src/assets /cv.pdf";
 import { useTheme } from "../../common/ThemeContext";
-   
+
 const Hero = () => {
   const { theme, toggleTheme } = useTheme();
 
