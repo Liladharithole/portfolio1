@@ -72,7 +72,7 @@ portfolio1/
 Feel free to reach out to me!
 
 - **Email**: liladharrrrr@gmail.com
-- **GitHub**: [@liladharthole](https://github.com/Liladharithole)
+- **GitHub**: [@liladharithole](https://github.com/Liladharithole)
 - **LinkedIn**: [Liladhar Ithole](https://www.linkedin.com/in/liladhar-ithole-889073217/)
 
 ## 📄 License
