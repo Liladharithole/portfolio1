@@ -2,23 +2,26 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="bg-black text-white px-8 py-2 md:px-16 lg:px-24">
+    <nav className="bg-black text-white px-8 py-2 md:px-16 lg:px-24 border-b border-gray-800">
       <div className="container py-2 flex justify-center md:justify-between items-center">
         <div className="text-3xl font-bold hidden md:inline">Liladhar</div>
         <div className="space-x-6">
-          <a href="#home" className=" hover:text-gray-400">
+          <a href="#home" className="hover:text-gray-400 text-[18px]">
             Home
           </a>
-          <a href="#about-me" className=" hover:text-gray-400">
+          <a href="#about-me" className="hover:text-gray-400 text-[18px]">
             About Me
           </a>
-          <a href="#services" className=" hover:text-gray-400">
-            Services
+          <a href="#skills" className="hover:text-gray-400 text-[18px]">
+            Skills
           </a>
-          <a href="#projects" className=" hover:text-gray-400">
+          {/* <a href="#services" className="hover:text-gray-400 text-[18px]">
+            Services
+          </a> */}
+          <a href="#projects" className="hover:text-gray-400 text-[18px]">
             Projects
           </a>
-          <a href="#contact" className=" hover:text-gray-400">
+          <a href="#contact" className="hover:text-gray-400 text-[18px]">
             Contact
           </a>
         </div>
