@@ -1,10 +1,15 @@
 import React from "react";
 import { projects } from "../data/ProjectsData.js";
+import { useTheme } from "../context/ThemeContext";
 
 const Project = () => {
+  const { isDark } = useTheme();
+
   return (
     <div
-      className="bg-black text-white min-h-screen px-4 sm:px-6 md:px-12 lg:px-24 py-16"
+      className={`${
+        isDark ? "bg-black text-white" : "bg-white text-gray-900"
+      } min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20`}
       id="projects"
     >
       <div className="max-w-7xl mx-auto">
@@ -15,7 +20,11 @@ const Project = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-gray-900 rounded-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl border border-gray-800"
+              className={`${
+                isDark
+                  ? "bg-gray-900 border-gray-800"
+                  : "bg-gray-100 border-gray-200"
+              } rounded-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl border`}
             >
               <div className="relative">
                 <img
@@ -46,17 +55,29 @@ const Project = () => {
               </div>
 
               <div className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-bold mb-2">
+                <h3
+                  className={`text-xl sm:text-2xl font-bold mb-2 ${
+                    isDark ? "text-white" : "text-gray-900"
+                  }`}
+                >
                   {project.name}
                 </h3>
-                <p className="text-gray-400 text-sm sm:text-base mb-4">
+                <p
+                  className={`${
+                    isDark ? "text-gray-300" : "text-gray-600"
+                  } text-sm sm:text-base mb-4`}
+                >
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="text-xs sm:text-sm bg-gray-800 text-gray-300 px-3 py-1 rounded-full"
+                      className={`text-xs sm:text-sm ${
+                        isDark
+                          ? "bg-gray-800 text-gray-200"
+                          : "bg-gray-200 text-gray-700"
+                      } px-3 py-1 rounded-full`}
                     >
                       {tech}
                     </span>

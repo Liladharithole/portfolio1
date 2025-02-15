@@ -21,8 +21,8 @@ export const projects = [
       "A clone of Netflix's UI featuring responsive design and movie streaming simulation",
     technologies: ["React", "Tailwind CSS", "Firebase"],
     image: netflix,
-    liveLink: "https://your-live-link.com",
-    githubLink: "https://github.com/yourusername/netflix-clone",
+    liveLink: "https://liladhar-ott-clone-01.netlify.app/",
+    githubLink: "https://github.com/Liladharithole/netflix-clone",
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ export const projects = [
       "A clone of Spotify's web player implementing music streaming and playlist management",
     technologies: ["React", "Tailwind CSS", "Spotify API"],
     image: spotify,
-    liveLink: "https://your-live-link.com",
-    githubLink: "https://github.com/yourusername/spotify-clone",
+    liveLink: "https://liladhar-spotify-clone.netlify.app",
+    githubLink: "https://github.com/Liladharithole/spotify-clone",
   },
 ];
