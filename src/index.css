@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+a{
+    @apply text-blue-500;
+}
+
+a:hover{
+    @apply text-gray-700;
+}
