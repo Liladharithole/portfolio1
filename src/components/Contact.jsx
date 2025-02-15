@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useForm, ValidationError } from "@formspree/react";
 import {
   FiMail,
   FiPhone,
@@ -12,19 +13,46 @@ import { IoLocationOutline } from "react-icons/io5";
 
 const Contact = () => {
   const { isDark } = useTheme();
+  const [state, handleSubmit] = useForm("meoerpjd");
+  const [showPopup, setShowPopup] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+    await handleSubmit(e);
+    if (state.succeeded) {
+      setShowPopup(true);
+      e.target.reset(); // Reset form
+      setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
+    }
   };
 
   return (
     <div
       className={`${
         isDark ? "bg-black text-white" : "bg-white text-gray-900"
-      } min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20`}
+      } min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 relative`}
       id="contact"
     >
+      {/* Success Popup */}
+      {showPopup && (
+        <div className="fixed top-24 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in-down z-50 flex items-center gap-2">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span>Message sent successfully!</span>
+        </div>
+      )}
+
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16">
           Get In Touch
@@ -98,7 +126,7 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleFormSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label
@@ -110,12 +138,18 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   className={`w-full px-4 py-2 ${
                     isDark
                       ? "bg-gray-900 border-gray-800"
                       : "bg-gray-100 border-gray-200"
                   } border rounded-lg focus:outline-none focus:border-blue-400`}
                   required
+                />
+                <ValidationError
+                  prefix="Name"
+                  field="name"
+                  errors={state.errors}
                 />
               </div>
               <div>
@@ -128,12 +162,18 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className={`w-full px-4 py-2 ${
                     isDark
                       ? "bg-gray-900 border-gray-800"
                       : "bg-gray-100 border-gray-200"
                   } border rounded-lg focus:outline-none focus:border-blue-400`}
                   required
+                />
+                <ValidationError
+                  prefix="Email"
+                  field="email"
+                  errors={state.errors}
                 />
               </div>
             </div>
@@ -148,12 +188,18 @@ const Contact = () => {
               <input
                 type="text"
                 id="subject"
+                name="subject"
                 className={`w-full px-4 py-2 ${
                   isDark
                     ? "bg-gray-900 border-gray-800"
                     : "bg-gray-100 border-gray-200"
                 } border rounded-lg focus:outline-none focus:border-blue-400`}
                 required
+              />
+              <ValidationError
+                prefix="Subject"
+                field="subject"
+                errors={state.errors}
               />
             </div>
 
@@ -166,6 +212,7 @@ const Contact = () => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows="4"
                 className={`w-full px-4 py-2 ${
                   isDark
@@ -174,13 +221,19 @@ const Contact = () => {
                 } border rounded-lg focus:outline-none focus:border-blue-400`}
                 required
               ></textarea>
+              <ValidationError
+                prefix="Message"
+                field="message"
+                errors={state.errors}
+              />
             </div>
 
             <button
               type="submit"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              disabled={state.submitting}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Send Message
+              {state.submitting ? "Sending..." : "Send Message"}
               <FiSend />
             </button>
           </form>
