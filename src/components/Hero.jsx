@@ -8,7 +8,7 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/liladhar-resume.pdf";
+    link.href = "../data/Liladhar Ithole .pdf";
     link.download = "Liladhar_Ithole_Resume.pdf";
     document.body.appendChild(link);
     link.click();
