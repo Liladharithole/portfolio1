@@ -70,7 +70,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <FiMail className="text-2xl text-blue-400" />
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:liladharrrrr@gmail.com"
                   className="hover:text-blue-400 transition-colors"
                 >
                   liladharrrrr@gmail.com
@@ -80,7 +80,7 @@ const Contact = () => {
               <div className="flex items-center gap-4">
                 <FiPhone className="text-2xl text-blue-400" />
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+917888232205"
                   className="hover:text-blue-400 transition-colors"
                 >
                   +91 7888232205
