@@ -2,13 +2,14 @@ import React from "react";
 import liladhar from "../assets/liladhar-circular.png";
 import { FiDownload, FiSend } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
+import  resume  from "../data/Liladhar Ithole .pdf";
 
 const Hero = () => {
   const { isDark } = useTheme();
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "../data/Liladhar Ithole .pdf";
+    link.href = resume;
     link.download = "Liladhar_Ithole_Resume.pdf";
     document.body.appendChild(link);
     link.click();
