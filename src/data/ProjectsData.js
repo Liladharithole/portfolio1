@@ -8,7 +8,7 @@ export const projects = [
     name: "Crypto Price Tracker",
     description:
       "Real-time cryptocurrency price tracking application with market data visualization",
-    technologies: ["React", "API Integration", "Chart.js", "Tailwind CSS"],
+    technologies: ["React", "API Integration", "Chart.js", "CSS"],
     image: crypto,
     liveLink: "https://liladhar-crypto-price-tracker.netlify.app/",
     githubLink: "https://github.com/Liladharithole/crypto-price-tracker",
@@ -29,7 +29,7 @@ export const projects = [
     name: "Spotify Clone",
     description:
       "A clone of Spotify's web player implementing music streaming and playlist management",
-    technologies: ["React", "Tailwind CSS", "Spotify API"],
+    technologies: ["React", "Tailwind CSS"],
     image: spotify,
     liveLink: "https://liladhar-spotify-clone.netlify.app",
     githubLink: "https://github.com/Liladharithole/spotify-clone",
