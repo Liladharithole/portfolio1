@@ -86,7 +86,7 @@ const ChatBot = () => {
       lowerMsg.includes("reach") ||
       lowerMsg.includes("email")
     ) {
-      return "You can reach Liladhar through:\n• Email: your.email@example.com\n• Phone: +91 1234567890\n• Location: Mumbai, India\nOr use the contact form above!";
+      return "You can reach Liladhar through:\n• Email: your.email@example.com\n• Phone: +91 1234567890\n• Location: Pune, India\nOr use the contact form above!";
     }
 
     // Experience responses
