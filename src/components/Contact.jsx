@@ -17,9 +17,8 @@ const Contact = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    await handleSubmit(e);
-    if (state.succeeded) {
+    const result = await handleSubmit(e);
+    if (result.succeeded) {
       setShowPopup(true);
       e.target.reset(); // Reset form
       setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
