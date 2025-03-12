@@ -1,7 +1,17 @@
 import React from "react";
-import { FaCode, FaDesktop, FaMobile, FaPaintBrush } from "react-icons/fa";
-import { BiCodeAlt } from "react-icons/bi";
-import { MdOutlineDesignServices } from "react-icons/md";
+import {
+  FaCode,
+  FaDesktop,
+  FaMobile,
+  FaPaintBrush,
+  FaServer,
+  FaDatabase,
+  FaNodeJs,
+} from "react-icons/fa";
+import { BiCodeAlt, BiServer } from "react-icons/bi";
+import { MdOutlineDesignServices, MdApi } from "react-icons/md";
+import { SiExpress, SiMongodb } from "react-icons/si";
+import { AiOutlineCloudServer, AiOutlineDeploymentUnit } from "react-icons/ai";
 import { useTheme } from "../context/ThemeContext";
 
 const Services = () => {
@@ -31,6 +41,42 @@ const Services = () => {
       title: "Frontend Development",
       description:
         "Developing clean, efficient, and maintainable frontend code using modern JavaScript frameworks.",
+    },
+    {
+      icon: <FaServer className="text-4xl text-indigo-400" />,
+      title: "Backend Development",
+      description:
+        "Building robust server-side applications with Node.js, Express, and other backend technologies.",
+    },
+    {
+      icon: <FaDatabase className="text-4xl text-green-500" />,
+      title: "Database Design",
+      description:
+        "Designing and implementing efficient database structures using MongoDB, MySQL, and other database systems.",
+    },
+    {
+      icon: <MdApi className="text-4xl text-orange-400" />,
+      title: "API Development",
+      description:
+        "Creating secure and scalable RESTful APIs for seamless communication between frontend and backend.",
+    },
+    {
+      icon: <FaNodeJs className="text-4xl text-green-600" />,
+      title: "Node.js Development",
+      description:
+        "Leveraging Node.js to build fast, scalable and efficient server-side applications and microservices.",
+    },
+    {
+      icon: <SiMongodb className="text-4xl text-green-500" />,
+      title: "MongoDB",
+      description:
+        "Implementing NoSQL database solutions with MongoDB for flexible and scalable data management.",
+    },
+    {
+      icon: <AiOutlineDeploymentUnit className="text-4xl text-blue-500" />,
+      title: "Deployment & DevOps",
+      description:
+        "Deploying applications to various hosting platforms and implementing CI/CD pipelines.",
     },
     {
       icon: <FaPaintBrush className="text-4xl text-pink-400" />,

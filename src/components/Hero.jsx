@@ -2,7 +2,7 @@ import React from "react";
 import liladhar from "../assets/liladhar-circular.png";
 import { FiDownload, FiSend } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
-import  resume  from "../data/Liladhar Ithole .pdf";
+import resume from "../data/Liladhar Ithole .pdf";
 
 const Hero = () => {
   const { isDark } = useTheme();
@@ -48,7 +48,7 @@ const Hero = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 animate-gradient">
               Liladhar Ithole
             </span>{" "}
-            <span className="block mt-2">Front-End Developer</span>
+            <span className="block mt-2">Full Stack Developer</span>
           </h1>
 
           <p
@@ -56,9 +56,9 @@ const Hero = () => {
               isDark ? "text-gray-400" : "text-gray-600"
             } max-w-2xl mx-auto px-4`}
           >
-            I am a Front-End Developer with experience in building responsive
-            websites using HTML, CSS, JavaScript, Tailwind, React.js, and UX
-            design.
+            I am a Full Stack MERN Developer with expertise in building
+            responsive and dynamic web applications using MongoDB, Express.js,
+            React.js, and Node.js.
           </p>
 
           <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 sm:gap-6 w-full justify-center">

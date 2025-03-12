@@ -41,10 +41,11 @@ const About = () => {
               >
                 LILADHAR
               </span>
-              , a computer science graduate with a strong passion for web
-              development and technology. I have hands-on experience with HTML,
-              CSS, JavaScript, Tailwind, React.js, and UX design, and have
-              developed strong problem-solving and analytical skills.
+              , a passionate Full Stack Developer specializing in the MERN stack
+              (MongoDB, Express.js, React.js, Node.js). With a strong foundation
+              in computer science, I create dynamic, responsive, and
+              user-friendly web applications that deliver exceptional user
+              experiences.
             </p>
 
             <p
@@ -52,10 +53,11 @@ const About = () => {
                 isDark ? "text-gray-300" : "text-gray-700"
               } leading-relaxed`}
             >
-              I am passionate about building user-friendly applications that
-              solve real-world problems and enhance the user experience. Despite
-              challenges, I am determined, hardworking, and eager to explore
-              opportunities that align with my skills and interests.
+              My frontend expertise includes HTML, CSS, JavaScript, React.js,
+              and, while my backend skills encompass Node.js, Express.js,
+              MongoDB, and RESTful API development. I'm proficient in building
+              complete web solutions from database design to responsive UI
+              implementation.
             </p>
 
             <p
@@ -63,8 +65,11 @@ const About = () => {
                 isDark ? "text-gray-300" : "text-gray-700"
               } leading-relaxed`}
             >
-              My ultimate goal is to build a successful career in technology and
-              leverage my knowledge to make an impact.
+              I approach each project with determination and analytical
+              thinking, and I'm constantly learning new technologies to enhance
+              my skills. My goal is to leverage my full stack expertise to build
+              innovative solutions that solve real-world problems and make a
+              meaningful impact in the tech industry.
             </p>
           </div>
         </div>
