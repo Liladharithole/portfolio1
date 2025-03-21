@@ -49,11 +49,11 @@ const Navbar = () => {
       label: "Projects",
       icon: <AiOutlineProject className="text-xl" />,
     },
-    {
-      href: "#contact",
-      label: "Contact",
-      icon: <RiContactsLine className="text-xl" />,
-    },
+    // {
+    //   href: "#contact",
+    //   label: "Contact",
+    //   icon: <RiContactsLine className="text-xl" />,
+    // },
   ];
 
   return (
