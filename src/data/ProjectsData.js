@@ -1,6 +1,7 @@
 import crypto from "../assets/Crypto-tracker.png";
 import spotify from "../assets/Spotify.png";
 import netflix from "../assets/Netflix.png";
+import Fooddel from "../assets/food-del-1.png";
 
 export const projects = [
   {
@@ -16,14 +17,15 @@ export const projects = [
 
   {
     id: 2,
-    name: "Netflix Clone",
+    name: "Food Delivery Website - Frontend",
     description:
-      "A clone of Netflix's UI featuring responsive design and movie streaming simulation",
-    technologies: ["React", "Tailwind CSS", "Firebase"],
-    image: netflix,
-    liveLink: "https://liladhar-ott-clone-01.netlify.app/",
-    githubLink: "https://github.com/Liladharithole/netflix-clone",
+      "A React-based front-end for a food delivery platform with interactive food catalog, shopping cart, user authentication, and streamlined checkout process.",
+    technologies: ["React", "React Router", "Context API", "CSS"],
+    image: Fooddel, 
+    liveLink: "https://food-delivery-site-1-60cd.onrender.com/",
+    githubLink: "https://github.com/Liladharithole/food-delivery-site-1/tree/main/front-end",
   },
+
   {
     id: 3,
     name: "Spotify Clone",
