@@ -18,16 +18,18 @@ const About = () => {
         </h2>
 
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          <div className="w-full lg:w-1/3">
+          {/* <div className="w-full lg:w-1/3">
             <img
               src={liladhar}
               alt="Liladhar Profile"
               className="w-48 sm:w-56 md:w-64 lg:w-full max-w-sm mx-auto rounded-lg shadow-xl 
                        transform transition-transform duration-300 hover:scale-105"
             />
-          </div>
+          </div> */}
 
-          <div className="w-full lg:w-2/3">
+          <div className="w-full">
+            {" "}
+            {/* lg:w-2/3    */}
             <p
               className={`text-base sm:text-lg md:text-xl ${
                 isDark ? "text-gray-300" : "text-gray-700"
@@ -47,7 +49,6 @@ const About = () => {
               user-friendly web applications that deliver exceptional user
               experiences.
             </p>
-
             <p
               className={`mt-4 text-base sm:text-lg md:text-xl ${
                 isDark ? "text-gray-300" : "text-gray-700"
@@ -59,7 +60,6 @@ const About = () => {
               complete web solutions from database design to responsive UI
               implementation.
             </p>
-
             <p
               className={`mt-4 text-base sm:text-lg md:text-xl ${
                 isDark ? "text-gray-300" : "text-gray-700"

@@ -12,6 +12,7 @@ import {
 } from "react-icons/fa";
 import {
   SiJavascript,
+  SiTypescript,
   SiTailwindcss,
   SiExpress,
   SiMongodb,
@@ -37,6 +38,10 @@ const Skills = () => {
           icon: <SiJavascript size={40} className="text-[#F7DF1E]" />,
         },
         {
+          name: "TypeScript",
+          icon: <SiTypescript size={40} className="text-[#1e71f7]" />,
+        },
+        {
           name: "React",
           icon: <FaReact size={40} className="text-[#61DAFB]" />,
         },
@@ -44,10 +49,10 @@ const Skills = () => {
           name: "Tailwind CSS",
           icon: <SiTailwindcss size={40} className="text-[#06B6D4]" />,
         },
-        {
-          name: "Bootstrap",
-          icon: <FaBootstrap size={40} className="text-[#7952B3]" />,
-        },
+        // {
+        //   name: "Bootstrap",
+        //   icon: <FaBootstrap size={40} className="text-[#7952B3]" />,
+        // },
       ],
     },
     {
