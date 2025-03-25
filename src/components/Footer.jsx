@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Social Links */}
           <div className="flex space-x-6">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Liladharithole"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
@@ -19,7 +19,7 @@ const Footer = () => {
               <FiGithub className="text-xl" />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/liladhar-ithole"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
@@ -27,7 +27,7 @@ const Footer = () => {
               <FiLinkedin className="text-xl" />
             </a>
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/Liladharrrrr"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
