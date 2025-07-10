@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 0px;
+}
+
+::-webkit-scrollbar-horizontal{
+    height: 0px;
 }
 
 ::-webkit-scrollbar-track{
     background: transparent;
 }
-
-
 
 a{
     @apply text-blue-500;
