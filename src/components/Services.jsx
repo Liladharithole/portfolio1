@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaCode,
   FaDesktop,
@@ -7,6 +7,8 @@ import {
   FaServer,
   FaDatabase,
   FaNodeJs,
+  FaChevronDown,
+  FaChevronUp,
 } from "react-icons/fa";
 import { BiCodeAlt, BiServer } from "react-icons/bi";
 import { MdOutlineDesignServices, MdApi } from "react-icons/md";
@@ -16,8 +18,43 @@ import { useTheme } from "../context/ThemeContext";
 
 const Services = () => {
   const { isDark } = useTheme();
+  const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const services = [
+    {
+      icon: <BiCodeAlt className="text-4xl text-purple-400" />,
+      title: "Frontend Development",
+      description:
+        "Building interactive and responsive user interfaces using React, Next.js, and modern JavaScript.",
+    },
+    {
+      icon: <FaNodeJs className="text-4xl text-green-500" />,
+      title: "Backend Development",
+      description:
+        "Developing robust server-side applications with Node.js, Express, and other backend technologies.",
+    },
+    {
+      icon: <SiExpress className="text-4xl text-gray-400" />,
+      title: "API Development",
+      description:
+        "Creating RESTful and GraphQL APIs for seamless frontend-backend communication.",
+    },
+    {
+      icon: <SiMongodb className="text-4xl text-green-600" />,
+      title: "Database Management",
+      description:
+        "Implementing NoSQL database solutions with MongoDB for flexible and scalable data management.",
+    },
     {
       icon: <FaCode className="text-4xl text-blue-400" />,
       title: "Web Development",
@@ -37,60 +74,17 @@ const Services = () => {
         "Building websites that work flawlessly across all devices and screen sizes.",
     },
     {
-      icon: <BiCodeAlt className="text-4xl text-purple-400" />,
-      title: "Frontend Development",
+      icon: <AiOutlineCloudServer className="text-4xl text-blue-500" />,
+      title: "Cloud Services",
       description:
-        "Developing clean, efficient, and maintainable frontend code using modern JavaScript frameworks.",
-    },
-    {
-      icon: <FaServer className="text-4xl text-indigo-400" />,
-      title: "Backend Development",
-      description:
-        "Building robust server-side applications with Node.js, Express, and other backend technologies.",
-    },
-    {
-      icon: <FaDatabase className="text-4xl text-green-500" />,
-      title: "Database Design",
-      description:
-        "Designing and implementing efficient database structures using MongoDB, MySQL, and other database systems.",
-    },
-    {
-      icon: <MdApi className="text-4xl text-orange-400" />,
-      title: "API Development",
-      description:
-        "Creating secure and scalable RESTful APIs for seamless communication between frontend and backend.",
-    },
-    {
-      icon: <FaNodeJs className="text-4xl text-green-600" />,
-      title: "Node.js Development",
-      description:
-        "Leveraging Node.js to build fast, scalable and efficient server-side applications and microservices.",
-    },
-    {
-      icon: <SiMongodb className="text-4xl text-green-500" />,
-      title: "MongoDB",
-      description:
-        "Implementing NoSQL database solutions with MongoDB for flexible and scalable data management.",
-    },
-    {
-      icon: <AiOutlineDeploymentUnit className="text-4xl text-blue-500" />,
-      title: "Deployment & DevOps",
-      description:
-        "Deploying applications to various hosting platforms and implementing CI/CD pipelines.",
-    },
-    {
-      icon: <FaPaintBrush className="text-4xl text-pink-400" />,
-      title: "Web Design",
-      description:
-        "Creating visually appealing and modern website designs that capture your brand's essence.",
-    },
-    {
-      icon: <FaDesktop className="text-4xl text-red-400" />,
-      title: "Web Applications",
-      description:
-        "Building custom web applications tailored to your specific business needs and requirements.",
+        "Leveraging cloud platforms for scalable and reliable application deployment.",
     },
   ];
+
+  const visibleServices =
+    isMobile && !showAll ? services.slice(0, 4) : services;
+  const showShowMore = isMobile && services.length > 6 && !showAll;
+  const showShowLess = isMobile && showAll;
 
   return (
     <div
@@ -105,7 +99,7 @@ const Services = () => {
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
-          {services.map((service, index) => (
+          {visibleServices.map((service, index) => (
             <div
               key={index}
               className={`${
@@ -136,6 +130,37 @@ const Services = () => {
             </div>
           ))}
         </div>
+
+        {(showShowMore || showShowLess) && (
+          <div className="relative mt-8">
+            <div className="absolute inset-0 flex items-end justify-center">
+              <div
+                className={`w-full h-32 bg-gradient-to-t ${
+                  isDark
+                    ? "from-black to-transparent"
+                    : "from-white to-transparent"
+                }`}
+              ></div>
+            </div>
+            <div className="relative flex justify-center">
+              <button
+                onClick={() => setShowAll(!showAll)}
+                className={`px-6 py-3 rounded-full flex items-center gap-2 ${
+                  isDark
+                    ? "bg-white/10 hover:bg-white/20 text-white border border-white/20"
+                    : "bg-black/5 hover:bg-black/10 text-gray-800 border border-black/10"
+                } transition-all duration-300 backdrop-blur-md`}
+              >
+                <span>{showAll ? "Show Less" : "Show More"}</span>
+                {showAll ? (
+                  <FaChevronUp className="w-4 h-4" />
+                ) : (
+                  <FaChevronDown className="w-4 h-4" />
+                )}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

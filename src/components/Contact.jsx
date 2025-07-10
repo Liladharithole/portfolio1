@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useForm, ValidationError } from "@formspree/react";
+import toast, { Toaster } from "react-hot-toast";
 import {
   FiMail,
   FiPhone,
@@ -14,14 +15,150 @@ import { IoLocationOutline } from "react-icons/io5";
 const Contact = () => {
   const { isDark } = useTheme();
   const [state, handleSubmit] = useForm("meoerpjd");
-  const [showPopup, setShowPopup] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // const handleFormSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsSubmitting(true);
+  //   console.log("Form submission started...");
+
+  //   try {
+  //     // Use the form's submit event directly with Formspree's handleSubmit
+  //     const formData = new FormData(e.target);
+  //     const response = await fetch("https://formspree.io/f/meoerpjd", {
+  //       method: "POST",
+  //       body: formData,
+  //       headers: {
+  //         Accept: "application/json",
+  //       },
+  //     });
+
+  //     const result = await response.json();
+  //     console.log("Form submission result:", result);
+
+  //     if (response.ok) {
+  //       console.log("Form submitted successfully");
+  //       toast.success("Message sent successfully!", {
+  //         position: "bottom-center",
+  //         duration: 5000,
+  //         style: {
+  //           background: isDark ? "#1a1a1a" : "#fff",
+  //           color: isDark ? "#fff" : "#1a1a1a",
+  //           border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
+  //           padding: "16px",
+  //           borderRadius: "8px",
+  //           boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  //         },
+  //       });
+  //       e.target.reset();
+  //       return;
+  //     }
+
+  //     // Handle form validation errors
+  //     if (result.errors) {
+  //       console.log("Form validation errors:", result.errors);
+  //       // The ValidationError components will handle these
+  //       return;
+  //     }
+
+  //     // If we get here, there was an unknown error
+  //     console.log("Unknown submission error");
+  //     throw new Error("Form submission failed");
+  //   } catch (error) {
+  //     console.error("Error in form submission:", {
+  //       error,
+  //       message: error.message,
+  //       name: error.name,
+  //       stack: error.stack,
+  //     });
+
+  //     if (error.toString().includes("ValidationError")) {
+  //       console.log("Validation error, handled by ValidationError components");
+  //       return;
+  //     }
+
+  //     toast.error("Failed to send message. Please try again.", {
+  //       position: "bottom-center",
+  //       duration: 5000,
+  //       style: {
+  //         background: isDark ? "#1a1a1a" : "#fff",
+  //         color: isDark ? "#fff" : "#1a1a1a",
+  //         border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
+  //         padding: "16px",
+  //         borderRadius: "8px",
+  //         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  //       },
+  //     });
+  //   } finally {
+  //     console.log("Form submission process completed");
+  //     setIsSubmitting(false);
+  //   }
+  // };
 
   const handleFormSubmit = async (e) => {
-    const result = await handleSubmit(e);
-    if (result.succeeded) {
-      setShowPopup(true);
-      e.target.reset(); // Reset form
-      setTimeout(() => setShowPopup(false), 5000); // Hide popup after 5 seconds
+    e.preventDefault();
+    setIsSubmitting(true);
+    console.log("Form submission started...");
+  
+    try {
+      const formData = new FormData(e.target);
+      // Add _replyto field which Formspree uses to set the reply-to header
+      formData.append('_replyto', formData.get('email'));
+      // Add _subject field to set the email subject
+      formData.append('_subject', `New contact from ${formData.get('name')} - ${formData.get('subject')}`);
+      // Add _format to get a nice email format
+      formData.append('_format', 'plain');
+      
+      const response = await fetch("https://formspree.io/f/meoerpjd", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+  
+      const result = await response.json();
+      console.log("Form submission result:", result);
+  
+      if (response.ok) {
+        console.log("Form submitted successfully");
+        toast.success("Message sent successfully! I'll get back to you soon.", {
+          position: "bottom-center",
+          duration: 5000,
+          style: {
+            background: isDark ? "#1a1a1a" : "#fff",
+            color: isDark ? "#fff" : "#1a1a1a",
+            border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
+            padding: "16px",
+            borderRadius: "8px",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+          },
+        });
+        e.target.reset();
+        return;
+      }
+    } catch (error) {
+      console.error("Error in form submission:", {
+        error,
+        message: error.message,
+        name: error.name,
+        stack: error.stack,
+      });
+      toast.error("Failed to send message. Please try again.", {
+        position: "bottom-center",
+        duration: 5000,
+        style: {
+          background: isDark ? "#1a1a1a" : "#fff",
+          color: isDark ? "#fff" : "#1a1a1a",
+          border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
+          padding: "16px",
+          borderRadius: "8px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+        },
+      });
+    } finally {
+      console.log("Form submission process completed");
+      setIsSubmitting(false);
     }
   };
 
@@ -32,25 +169,7 @@ const Contact = () => {
       } min-h-screen px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 relative`}
       id="contact"
     >
-      {/* Success Popup */}
-      {showPopup && (
-        <div className="fixed top-24 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-fade-in-down z-50 flex items-center gap-2">
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <span>Message sent successfully!</span>
-        </div>
-      )}
+      <Toaster />
 
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 md:mb-16">
@@ -144,6 +263,7 @@ const Contact = () => {
                       : "bg-gray-100 border-gray-200"
                   } border rounded-lg focus:outline-none focus:border-blue-400`}
                   required
+                  disabled={isSubmitting}
                 />
                 <ValidationError
                   prefix="Name"
@@ -168,6 +288,7 @@ const Contact = () => {
                       : "bg-gray-100 border-gray-200"
                   } border rounded-lg focus:outline-none focus:border-blue-400`}
                   required
+                  disabled={isSubmitting}
                 />
                 <ValidationError
                   prefix="Email"
@@ -194,6 +315,7 @@ const Contact = () => {
                     : "bg-gray-100 border-gray-200"
                 } border rounded-lg focus:outline-none focus:border-blue-400`}
                 required
+                disabled={isSubmitting}
               />
               <ValidationError
                 prefix="Subject"
@@ -219,6 +341,7 @@ const Contact = () => {
                     : "bg-gray-100 border-gray-200"
                 } border rounded-lg focus:outline-none focus:border-blue-400`}
                 required
+                disabled={isSubmitting}
               ></textarea>
               <ValidationError
                 prefix="Message"
@@ -229,11 +352,43 @@ const Contact = () => {
 
             <button
               type="submit"
-              disabled={state.submitting}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-gradient-to-r from-green-400 to-blue-500 text-white px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={isSubmitting}
+              className={`w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg ${
+                isSubmitting
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white"
+              }`}
             >
-              {state.submitting ? "Sending..." : "Send Message"}
-              <FiSend />
+              {isSubmitting ? (
+                <>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <FiSend />
+                </>
+              )}
             </button>
           </form>
         </div>
