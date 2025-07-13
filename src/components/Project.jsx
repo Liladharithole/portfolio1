@@ -52,11 +52,11 @@ const Project = () => {
         {/* Mobile: Vertical List */}
         <div className="md:hidden space-y-6 px-2">
           {visibleProjects.map((project) => (
-            <div key={project.id} className="w-full px-2">
+            <div key={project.id} className="w-full px-2 cursor-pointer">
               <ProjectCard
                 project={project}
                 isDark={isDark}
-                className="w-full max-w-md mx-auto min-h-[420px] sm:min-h-[450px]"
+                className="w-full max-w-md mx-auto min-h-[420px] sm:min-h-[450px] cursor-pointer"
               />
             </div>
           ))}
@@ -111,7 +111,7 @@ const Project = () => {
                     <ProjectCard
                       project={project}
                       isDark={isDark}
-                      className="h-full"
+                      className="h-full cursor-pointer"
                     />
                   </div>
                 ))}
