@@ -23,6 +23,17 @@ const Navbar = () => {
     }
   };
 
+  const navigateToHome = () => {
+    const homeSection = document.getElementById("home");
+    if (homeSection) {
+      homeSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setIsMenuOpen(false); // Close mobile menu if open
+    }
+  };
+
   const navItems = [
     {
       href: "#home",
@@ -68,7 +79,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 lg:px-8 xl:px-12 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text">
+          <div onClick={navigateToHome} className="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-500 text-transparent bg-clip-text cursor-pointer">
             Liladhar
           </div>
 
