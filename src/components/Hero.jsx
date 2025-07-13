@@ -2,7 +2,7 @@ import React from "react";
 import liladhar from "../assets/liladhar-circular.png";
 import { FiDownload, FiSend } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
-import resume from "../data/Liladhar Ithole .pdf";
+import resume from "../data/Liladhar Ithole - 2025.pdf";
 
 const Hero = () => {
   const { isDark } = useTheme();
@@ -35,18 +35,18 @@ const Hero = () => {
     >
       <div className="max-w-4xl mx-auto w-full">
         <div className="flex flex-col items-center">
-          <img
+          {/* <img
             className="w-32 sm:w-40 md:w-52 rounded-full object-cover shadow-xl 
                      transform transition-transform duration-300 hover:scale-105 
                      border-2 border-blue-400"
             src={liladhar}
             alt="Liladhar"
-          />
+          /> */}
 
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mt-8 mb-4">
             I'm{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400 animate-gradient">
-              Liladhar Ithole
+              Liladhar I.
             </span>{" "}
             <span className="block mt-2">Full Stack Developer</span>
           </h1>
