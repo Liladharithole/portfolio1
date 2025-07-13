@@ -7,6 +7,11 @@ const StarsBackground = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
+    // Prevent touch actions that cause flashing
+    const preventTouch = (e) => {
+      e.preventDefault();
+    };
+
     // Set canvas size to match parent
     const resizeCanvas = () => {
       const container = canvas.parentElement;
@@ -16,6 +21,15 @@ const StarsBackground = () => {
 
     // Initial resize
     resizeCanvas();
+
+    // Add touch event listeners to prevent flashing
+    if (/Mobi|Android/i.test(navigator.userAgent)) {
+      document.body.style.touchAction = "none";
+      document.body.style.overscrollBehavior = "none";
+      document.body.style.webkitOverflowScrolling = "auto";
+      window.addEventListener("touchmove", preventTouch, { passive: false });
+    }
+
     window.addEventListener("resize", resizeCanvas);
 
     // Star settings
@@ -190,6 +204,12 @@ const StarsBackground = () => {
     // Cleanup
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      if (/Mobi|Android/i.test(navigator.userAgent)) {
+        document.body.style.touchAction = "";
+        document.body.style.overscrollBehavior = "";
+        document.body.style.webkitOverflowScrolling = "";
+        window.removeEventListener("touchmove", preventTouch);
+      }
       cancelAnimationFrame(animationId);
     };
   }, []);
