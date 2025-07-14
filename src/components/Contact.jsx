@@ -17,109 +17,34 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("meoerpjd");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // const handleFormSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsSubmitting(true);
-  //   console.log("Form submission started...");
-
-  //   try {
-  //     // Use the form's submit event directly with Formspree's handleSubmit
-  //     const formData = new FormData(e.target);
-  //     const response = await fetch("https://formspree.io/f/meoerpjd", {
-  //       method: "POST",
-  //       body: formData,
-  //       headers: {
-  //         Accept: "application/json",
-  //       },
-  //     });
-
-  //     const result = await response.json();
-  //     console.log("Form submission result:", result);
-
-  //     if (response.ok) {
-  //       console.log("Form submitted successfully");
-  //       toast.success("Message sent successfully!", {
-  //         position: "bottom-center",
-  //         duration: 5000,
-  //         style: {
-  //           background: isDark ? "#1a1a1a" : "#fff",
-  //           color: isDark ? "#fff" : "#1a1a1a",
-  //           border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
-  //           padding: "16px",
-  //           borderRadius: "8px",
-  //           boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-  //         },
-  //       });
-  //       e.target.reset();
-  //       return;
-  //     }
-
-  //     // Handle form validation errors
-  //     if (result.errors) {
-  //       console.log("Form validation errors:", result.errors);
-  //       // The ValidationError components will handle these
-  //       return;
-  //     }
-
-  //     // If we get here, there was an unknown error
-  //     console.log("Unknown submission error");
-  //     throw new Error("Form submission failed");
-  //   } catch (error) {
-  //     console.error("Error in form submission:", {
-  //       error,
-  //       message: error.message,
-  //       name: error.name,
-  //       stack: error.stack,
-  //     });
-
-  //     if (error.toString().includes("ValidationError")) {
-  //       console.log("Validation error, handled by ValidationError components");
-  //       return;
-  //     }
-
-  //     toast.error("Failed to send message. Please try again.", {
-  //       position: "bottom-center",
-  //       duration: 5000,
-  //       style: {
-  //         background: isDark ? "#1a1a1a" : "#fff",
-  //         color: isDark ? "#fff" : "#1a1a1a",
-  //         border: `1px solid ${isDark ? "#333" : "#e5e7eb"}`,
-  //         padding: "16px",
-  //         borderRadius: "8px",
-  //         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-  //       },
-  //     });
-  //   } finally {
-  //     console.log("Form submission process completed");
-  //     setIsSubmitting(false);
-  //   }
-  // };
-
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     console.log("Form submission started...");
-  
+
     try {
       const formData = new FormData(e.target);
       // Add _replyto field which Formspree uses to set the reply-to header
-      formData.append('_replyto', formData.get('email'));
+      formData.append("_replyto", formData.get("email"));
       // Add _subject field to set the email subject
-      formData.append('_subject', `New contact from ${formData.get('name')} - ${formData.get('subject')}`);
+      formData.append(
+        "_subject",
+        `New contact from ${formData.get("name")} - ${formData.get("subject")}`
+      );
       // Add _format to get a nice email format
-      formData.append('_format', 'plain');
-      
+      formData.append("_format", "plain");
+
       const response = await fetch("https://formspree.io/f/meoerpjd", {
         method: "POST",
         body: formData,
         headers: {
-          'Accept': 'application/json'
-        }
+          Accept: "application/json",
+        },
       });
-  
+
       const result = await response.json();
       console.log("Form submission result:", result);
-  
+
       if (response.ok) {
         console.log("Form submitted successfully");
         toast.success("Message sent successfully! I'll get back to you soon.", {
@@ -257,6 +182,7 @@ const Contact = () => {
                   type="text"
                   id="name"
                   name="name"
+                  placeholder="Enter your name"
                   className={`w-full px-4 py-2 ${
                     isDark
                       ? "bg-gray-900 border-gray-800"
@@ -282,6 +208,7 @@ const Contact = () => {
                   type="email"
                   id="email"
                   name="email"
+                  placeholder="Enter your email"
                   className={`w-full px-4 py-2 ${
                     isDark
                       ? "bg-gray-900 border-gray-800"
