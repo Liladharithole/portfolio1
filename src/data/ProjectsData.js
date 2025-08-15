@@ -3,7 +3,7 @@ import spotify from "../assets/Spotify.png";
 import netflix from "../assets/Netflix.png";
 import Fooddel from "../assets/food-del-1.png";
 import Quick_blog_ai from "../assets/Quick_blog_ai.pmg.png";
-import MakeMyAI from "../assets/MakeMyAI.png";
+import MakeMyAI from "../assets/makemyai-min.png";
 
 export const projects = [
   {
