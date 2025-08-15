@@ -3,10 +3,34 @@ import spotify from "../assets/Spotify.png";
 import netflix from "../assets/Netflix.png";
 import Fooddel from "../assets/food-del-1.png";
 import Quick_blog_ai from "../assets/Quick_blog_ai.pmg.png";
+import MakeMyAI from "../assets/MakeMyAI.png";
 
 export const projects = [
   {
-    id: 1,
+    id: 96,
+    name: "MakeMyAI",
+    description:
+      "A MERN stack blog platform with AI-powered content generation using Google Gemini, featuring an admin dashboard, rich text editor, and user authentication.",
+      technologies: [
+        "React",
+        "Node.js",
+        "Express",
+        "PostgreSQL (Neon)",
+        "Google Gemini AI",
+        "Tailwind CSS",
+        "Clerk Authentication",
+        "Cloudinary",
+        "Clipdrop API",
+        "Axios",
+        "Multer",
+        "PDF-parse"
+      ],
+    image: MakeMyAI,
+    liveLink: "https://makemyai.vercel.app/",
+    githubLink: "https://github.com/Liladharithole/makemyai",
+  },
+  {
+    id: 97,
     name: "Quick Blog AI",
     description:
       "A MERN stack blog platform with AI-powered content generation using Google Gemini, featuring an admin dashboard, rich text editor, and user authentication.",
@@ -26,7 +50,7 @@ export const projects = [
     githubLink: "https://github.com/Liladharithole/Quick-Blog-AI",
   },
   {
-    id: 2,
+    id: 98,
     name: "Crypto Price Tracker",
     description:
       "Real-time cryptocurrency price tracking application with market data visualization",
@@ -37,7 +61,7 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: 99,
     name: "Food Delivery Website - Frontend",
     description:
       "A React-based front-end for a food delivery platform with interactive food catalog, shopping cart, user authentication, and streamlined checkout process.",
@@ -49,7 +73,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 100,
     name: "Spotify Clone",
     description:
       "A clone of Spotify's web player implementing music streaming and playlist management",
