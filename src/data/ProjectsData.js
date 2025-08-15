@@ -10,8 +10,8 @@ export const projects = [
     id: 96,
     name: "MakeMyAI",
     description:
-      "A MERN stack blog platform with AI-powered content generation using Google Gemini, featuring an admin dashboard, rich text editor, and user authentication.",
-      technologies: [
+      "MakeMyAI - AI-Powered Content Creation Suite that can generate articles, blog titles, images, and review your resume.",
+    technologies: [
         "React",
         "Node.js",
         "Express",
@@ -33,7 +33,7 @@ export const projects = [
     id: 97,
     name: "Quick Blog AI",
     description:
-      "A MERN stack blog platform with AI-powered content generation using Google Gemini, featuring an admin dashboard, rich text editor, and user authentication.",
+      "Quick Blog AI - A MERN stack blog platform with AI-powered content generation using Google Gemini, featuring an admin dashboard, rich text editor, and user authentication.",
     technologies: [
       "React",
       "Node.js",
@@ -53,7 +53,7 @@ export const projects = [
     id: 98,
     name: "Crypto Price Tracker",
     description:
-      "Real-time cryptocurrency price tracking application with market data visualization",
+      "Crypto Price Tracker - Real-time cryptocurrency price tracking application with market data visualization",
     technologies: ["React", "API Integration", "Chart.js", "CSS"],
     image: crypto,
     liveLink: "https://liladhar-crypto-price-tracker.netlify.app/",
@@ -64,7 +64,7 @@ export const projects = [
     id: 99,
     name: "Food Delivery Website - Frontend",
     description:
-      "A React-based front-end for a food delivery platform with interactive food catalog, shopping cart, user authentication, and streamlined checkout process.",
+      "Food Delivery Website - Frontend - A React-based front-end for a food delivery platform with interactive food catalog, shopping cart, user authentication, and streamlined checkout process.",
     technologies: ["React", "React Router", "Context API", "CSS"],
     image: Fooddel,
     liveLink: "https://food-delivery-site-1-60cd.onrender.com/",
@@ -76,7 +76,7 @@ export const projects = [
     id: 100,
     name: "Spotify Clone",
     description:
-      "A clone of Spotify's web player implementing music streaming and playlist management",
+      "Spotify Clone - A clone of Spotify's web player implementing music streaming and playlist management",
     technologies: ["React", "Tailwind CSS"],
     image: spotify,
     liveLink: "https://liladhar-spotify-clone.netlify.app",
