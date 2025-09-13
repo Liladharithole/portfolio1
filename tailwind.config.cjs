@@ -31,7 +31,6 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp'),
     function ({ addUtilities }) {
       const newUtilities = {
         '.scrollbar-hide': {
