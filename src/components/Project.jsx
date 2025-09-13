@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { projects } from "../data/ProjectsData.js";
 import { useTheme } from "../context/ThemeContext";
+import { useScrollAnimation, useStaggeredAnimation } from "../hooks/useScrollAnimation";
+import OptimizedImage from "./OptimizedImage";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -13,6 +15,8 @@ const Project = () => {
   const [showAll, setShowAll] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const scrollContainerRef = useRef(null);
+  const [titleRef, titleVisible] = useScrollAnimation();
+  const [projectsRef, projectsVisible, getItemDelay] = useStaggeredAnimation(projects.length, 150);
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
@@ -45,17 +49,22 @@ const Project = () => {
       id="projects"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 md:mb-12 lg:mb-16">
+        <h2 
+          ref={titleRef}
+          className={`text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-center mb-8 md:mb-12 lg:mb-16 transition-smooth
+            ${titleVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
+        >
           Projects
         </h2>
 
         {/* Mobile: Vertical List */}
-        <div className="md:hidden space-y-6 px-2">
-          {visibleProjects.map((project) => (
+        <div ref={projectsRef} className="md:hidden space-y-6 px-2">
+          {visibleProjects.map((project, index) => (
             <div key={project.id} className="w-full px-2 cursor-pointer">
               <ProjectCard
                 project={project}
                 isDark={isDark}
+                index={index}
                 className="w-full max-w-md mx-auto min-h-[420px] sm:min-h-[450px] cursor-pointer"
               />
             </div>
@@ -106,11 +115,12 @@ const Project = () => {
               style={{ scrollBehavior: "smooth" }}
             >
               <div className="flex space-x-6 min-w-max w-full px-2">
-                {projects.map((project) => (
+                {projects.map((project, index) => (
                   <div key={project.id} className="w-80 flex-shrink-0">
                     <ProjectCard
                       project={project}
                       isDark={isDark}
+                      index={index}
                       className="h-full cursor-pointer"
                     />
                   </div>
@@ -138,26 +148,32 @@ const Project = () => {
 };
 
 // Extracted Project Card Component
-const ProjectCard = ({ project, isDark, className = "" }) => {
+const ProjectCard = ({ project, isDark, className = "", index }) => {
+  const [cardRef, cardVisible] = useScrollAnimation({ threshold: 0.2 });
+  
   return (
     <div
+      ref={cardRef}
       className={`${
         isDark ? "bg-gray-900 border-gray-800" : "bg-gray-100 border-gray-200"
-      } rounded-xl overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-xl border ${className}`}
+      } rounded-xl overflow-hidden card-smooth border ${className}
+        ${cardVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}
+      style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className="relative">
-        <img
+      <div className="relative group">
+        <OptimizedImage
           src={project.image}
           alt={project.name}
-          className="w-full h-48 sm:h-56 md:h-60 object-cover"
+          className="w-full h-48 sm:h-56 md:h-60"
+          placeholder={<div className="loading-shimmer w-full h-full" />}
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-          <div className="flex flex-wrap justify-center gap-3 w-full px-2">
+        <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-4">
+          <div className="flex flex-wrap justify-center gap-3 w-full px-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
             <a
               href={project.liveLink}
               target="_blank"
               rel="noreferrer"
-              className="bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base whitespace-nowrap flex-1 text-center"
+              className="bg-blue-600 text-white px-4 py-2.5 rounded-lg btn-smooth text-sm sm:text-base whitespace-nowrap flex-1 text-center font-medium"
             >
               Live Demo
             </a>
@@ -165,7 +181,7 @@ const ProjectCard = ({ project, isDark, className = "" }) => {
               href={project.githubLink}
               target="_blank"
               rel="noreferrer"
-              className="bg-gray-700 text-white px-4 py-2.5 rounded-lg hover:bg-gray-600 transition-colors text-sm sm:text-base whitespace-nowrap flex-1 text-center"
+              className="bg-gray-700 text-white px-4 py-2.5 rounded-lg btn-smooth text-sm sm:text-base whitespace-nowrap flex-1 text-center font-medium"
             >
               Code
             </a>

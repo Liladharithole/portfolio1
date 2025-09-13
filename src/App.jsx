@@ -8,23 +8,26 @@ import Project from "./components/Project";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ChatBot from "./components/ChatBot";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./context/ThemeContext";
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <div className="transition-colors duration-300">
-        <Navbar />
-        <Hero />
-        <About />
-        <Skills />
-        <Services />
-        <Project />
-        <Contact />
-        <Footer />
-        <ChatBot />
-      </div>
-    </ThemeProvider>
+    <ErrorBoundary>
+      <ThemeProvider>
+        <div className="font-primary transition-colors duration-300 overflow-x-hidden">
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Services />
+          <Project />
+          <Contact />
+          <Footer />
+          <ChatBot />
+        </div>
+      </ThemeProvider>
+    </ErrorBoundary>
   );
 };
 

@@ -4,6 +4,11 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        'primary': ['Inter', 'system-ui', 'sans-serif'],
+        'heading': ['Space Grotesk', 'system-ui', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'Consolas', 'Monaco', 'monospace'],
+      },
       keyframes: {
         "fade-in-down": {
           "0%": {
