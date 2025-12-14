@@ -1,5 +1,3 @@
-import React from "react";
-import liladhar from "../assets/liladhar-circular.png";
 import { FiDownload, FiSend } from "react-icons/fi";
 import { useTheme } from "../context/ThemeContext";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
@@ -70,7 +68,7 @@ const Hero = () => {
                 <span className="inline-block animate-waving-hand ml-2">👋🏽</span>
               </div>
               <div className="mb-4">
-                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl">I'm </span>
+                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl">I&apos;m </span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-gradient">
                   Liladhar Ithole
                 </span>
@@ -104,7 +102,7 @@ const Hero = () => {
                        flex items-center justify-center gap-1 sm:gap-2 
                        hover:from-blue-500 hover:to-green-400 shadow-lg hover:shadow-xl"
             >
-              <span className="hidden sm:inline">Let's </span>Connect
+              <span className="hidden sm:inline">Let&apos;s </span>Connect
               <FiSend className="icon-bounce text-xs sm:text-sm" />
             </button>
 

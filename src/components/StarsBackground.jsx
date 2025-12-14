@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef } from "react";
 
 const StarsBackground = () => {
   const canvasRef = useRef(null);

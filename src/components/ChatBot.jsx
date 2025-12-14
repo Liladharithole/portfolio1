@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiMessageSquare, FiX, FiSend } from "react-icons/fi";
 
 const ChatBot = () => {

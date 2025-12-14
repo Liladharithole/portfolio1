@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiOutlineHome, AiOutlineUser, AiOutlineProject } from "react-icons/ai";
 import { BiBookContent } from "react-icons/bi";
 import { RiContactsLine } from "react-icons/ri";

@@ -1,5 +1,3 @@
-import React from "react";
-import liladhar from "../assets/liladhar-circular.png";
 import { useTheme } from "../context/ThemeContext";
 
 const About = () => {
@@ -35,7 +33,7 @@ const About = () => {
                 isDark ? "text-gray-300" : "text-gray-700"
               } leading-relaxed`}
             >
-              Hi, I'm{" "}
+              Hi, I&apos;m{" "}
               <span
                 className={`${
                   isDark ? "text-white" : "text-gray-900"
@@ -56,7 +54,7 @@ const About = () => {
             >
               My frontend expertise includes HTML, CSS, JavaScript, React.js,
               and, while my backend skills encompass Node.js, Express.js,
-              MongoDB, and RESTful API development. I'm proficient in building
+              MongoDB, and RESTful API development. I&apos;m proficient in building
               complete web solutions from database design to responsive UI
               implementation.
             </p>
@@ -66,7 +64,7 @@ const About = () => {
               } leading-relaxed`}
             >
               I approach each project with determination and analytical
-              thinking, and I'm constantly learning new technologies to enhance
+              thinking, and I&apos;m constantly learning new technologies to enhance
               my skills. My goal is to leverage my full stack expertise to build
               innovative solutions that solve real-world problems and make a
               meaningful impact in the tech industry.

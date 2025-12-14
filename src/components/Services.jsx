@@ -1,19 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   FaCode,
-  FaDesktop,
   FaMobile,
-  FaPaintBrush,
-  FaServer,
-  FaDatabase,
   FaNodeJs,
   FaChevronDown,
   FaChevronUp,
 } from "react-icons/fa";
-import { BiCodeAlt, BiServer } from "react-icons/bi";
-import { MdOutlineDesignServices, MdApi } from "react-icons/md";
+import { BiCodeAlt } from "react-icons/bi";
+import { MdOutlineDesignServices } from "react-icons/md";
 import { SiExpress, SiMongodb } from "react-icons/si";
-import { AiOutlineCloudServer, AiOutlineDeploymentUnit } from "react-icons/ai";
+import { AiOutlineCloudServer } from "react-icons/ai";
 import { useTheme } from "../context/ThemeContext";
 
 const Services = () => {

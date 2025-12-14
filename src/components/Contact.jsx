@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { useForm, ValidationError } from "@formspree/react";
 import toast, { Toaster } from "react-hot-toast";
@@ -14,7 +14,7 @@ import { IoLocationOutline } from "react-icons/io5";
 
 const Contact = () => {
   const { isDark } = useTheme();
-  const [state, handleSubmit] = useForm("meoerpjd");
+  const [state] = useForm("meoerpjd");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleFormSubmit = async (e) => {

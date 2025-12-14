@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import {
   FaHtml5,
@@ -7,7 +6,6 @@ import {
   FaNodeJs,
   FaGitAlt,
   FaGithub,
-  FaBootstrap,
   FaDatabase,
 } from "react-icons/fa";
 import {

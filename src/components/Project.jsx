@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { projects } from "../data/ProjectsData.js";
 import { useTheme } from "../context/ThemeContext";
 import { useScrollAnimation, useStaggeredAnimation } from "../hooks/useScrollAnimation";
@@ -16,7 +16,7 @@ const Project = () => {
   const [isMobile, setIsMobile] = useState(false);
   const scrollContainerRef = useRef(null);
   const [titleRef, titleVisible] = useScrollAnimation();
-  const [projectsRef, projectsVisible, getItemDelay] = useStaggeredAnimation(projects.length, 150);
+  const [projectsRef] = useStaggeredAnimation(projects.length, 150);
 
   const scroll = (direction) => {
     if (scrollContainerRef.current) {
